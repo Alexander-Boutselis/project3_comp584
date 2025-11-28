@@ -87,9 +87,12 @@ main section h1 {
 .header-tile {
   display: grid; 
   grid-template-columns: 1fr;
+  width: 30%; 
+
 }
 
 .header-tile section {
+  width: 100%; 
   justify-self: center; 
   min-height: 5rem;
   padding: 0.4rem;
@@ -316,7 +319,6 @@ main section h1 {
   text-align: left;
 }
 
-
 .project3-mywork {
   padding: 0;                      
   display: grid;
@@ -338,11 +340,23 @@ main section h1 {
   text-align: left;
 }
 
-
 .project4-mywork {
   padding: 0;                      
   display: grid;
   grid-template-rows: auto auto;   
+}
+
+
+/*================= Link Tiles =================*/
+.all-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(auto, 1fr));
+  grid-auto-flow: row; 
+  width: 100%;
+}
+
+.all-links section{
+  background-color: #faa356;
 }
 
 
@@ -355,6 +369,7 @@ main section h1 {
 
 .link-tiles h1 {
   align-self: start;
+  padding-top: 10px;       
 }
 
 /* Button group inside the tile */
@@ -362,7 +377,8 @@ main section h1 {
   display: grid;          
   row-gap: 1rem;          /* space between the two buttons */
   justify-items: center;  
-  align-self: end;       
+  align-self: end;
+  padding-bottom: 10px;       
 }
 
 .project-link-tiles{
