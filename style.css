@@ -389,6 +389,48 @@ main section h1 {
 
 }
 
+/*================= Tablet Layout (≈ up to 900px) =================*/
+@media (max-width: 900px) {
+
+  /* Let rows breathe edge-to-edge a bit more on tablet */
+  .wrapper {
+    padding: 0.75rem;
+  }
+
+  main {
+    max-width: 100%;
+    gap: 0.75rem;
+  }
+
+  /* Info row: stack into a single column on tablet */
+  .assignment1-tiles,
+  .assignment2-tiles,
+  .assignment3-tiles,
+  .project1-tiles,
+  .project2-tiles,
+  .info-tiles,
+  .link-tiles {
+    grid-template-columns: 1fr;
+    width: 100%;
+
+  }
+
+  /* Assignment rows: 2 columns on tablet instead of 3 / uneven splits */
+  .all-links {
+    grid-template-columns: 1fr 1fr;  /* 2 equal columns per row */
+    width: 100%;
+
+  }
+
+  /* Buttons rows already 1 column; no change needed but okay to be explicit */
+  .project1-buttons,
+  .project2-buttons {
+    grid-template-columns: 1fr;
+    width: 100%;
+
+  }
+
+}
 
 
 
