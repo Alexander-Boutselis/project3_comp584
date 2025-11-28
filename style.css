@@ -30,7 +30,7 @@ body {
   min-height: calc(100vh - 10px);
   margin: 5px auto;              
   padding: 1rem;
-  background-color: #000000;
+  background-color: #ffffff;
 }
 
 
@@ -46,7 +46,7 @@ main {
 /* Base styling for all boxes */
 main section {
   border-radius: 4px;
-  color: #ffffff;
+  color: #000000;
   /*min-height: 300px;*/
   display: grid;
   align-content: center;   /* center content vertically within the card */
@@ -135,10 +135,7 @@ main section h1 {
 .creator-info {
   display: grid;
   grid-template-columns: 1fr;
-}
-
-.creator-info {
-  background-color: #7ce38b;
+  background-color: #faa356;
   padding: 1rem;
   align-content: start;
   text-align: left;
@@ -152,7 +149,7 @@ main section h1 {
 }
 
 .assignment1-tiles section {
-  background-color: #fa7970;
+  background-color: #a2d2fb;
   padding: 1rem;
   align-content: start;
   text-align: left;
@@ -167,7 +164,7 @@ main section h1 {
 }
 
 .assignment2-tiles section {
-  background-color: #a2d2fb;
+  background-color: #63a2ff;
   padding: 1rem;
   align-content: start;
   text-align: left;
@@ -178,15 +175,178 @@ main section h1 {
 
 .assignment3-tiles {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr;
 }
 
 .assignment3-tiles section {
-  background-color: #174e7e;
+  background-color: #5781bf;
   padding: 1rem;
   align-content: start;
   text-align: left;
 }
+
+/*================= Assignment #4 =================*/
+
+.assignment4-tiles {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.assignment4-tiles section {
+  background-color: #2c599d;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+/*================= Project #1 =================*/
+
+.project1-tiles {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.project1-tiles section {
+  background-color: #4a2d9b;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+.project1-buttons{
+  display: grid;
+  grid-template-columns: 1fr;
+  background-color: #4a2d9b;
+  width: 100%;
+}
+
+.project1-buttons section{
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+.project1-mywork {
+  background-color: transparent;   
+  padding: 0;                      
+  display: grid;
+  grid-template-rows: auto auto;   
+}
+
+/* Both halves get the purple card look */
+.project1-mywork-top,
+.project1-mywork-bottom {
+  background-color: #4a2d9b;   
+  padding: 1.5rem;
+  border-radius: 4px;
+  width: 100%;
+
+}
+
+/* Slight separation between text and links */
+.project1-mywork-bottom {
+  margin-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Center the links/buttons nicely at the bottom */
+.project1-mywork-bottom {
+  display: grid;
+  row-gap: 1rem;
+  justify-items: center;
+}
+
+/*================= Project #2 =================*/
+
+.project2-tiles {
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+}
+
+.project2-tiles section {
+  background-color: #6c51bc;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+
+.project2-mywork {
+  background-color: transparent;   
+  padding: 0;                      
+  display: grid;
+  grid-template-rows: auto auto;   
+}
+
+/* Both halves get the purple card look */
+.project2-mywork-top,
+.project2-mywork-bottom {
+  background-color: #6c51bc;   
+  padding: 1.5rem;
+  border-radius: 4px;
+  width: 100%;
+
+}
+
+/* Slight separation between text and links */
+.project2-mywork-bottom {
+  margin-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Center the links/buttons nicely at the bottom */
+.project2-mywork-bottom {
+  display: grid;
+  row-gap: 1rem;
+  justify-items: center;
+}
+
+
+/*================= Project #3 =================*/
+
+.project3-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project3-tiles section {
+  background-color: #927adb;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+
+.project3-mywork {
+  background-color: transparent;   
+  padding: 0;                      
+  display: grid;
+  grid-template-rows: auto auto;   
+}
+
+/* Both halves get the purple card look */
+.project3-mywork-top,
+.project3-mywork-bottom {
+  background-color: #927adb;   
+  padding: 1.5rem;
+  border-radius: 4px;
+  width: 100%;
+
+}
+
+/* Slight separation between text and links */
+.project3-mywork-bottom {
+  margin-top: 1rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Center the links/buttons nicely at the bottom */
+.project3-mywork-bottom {
+  display: grid;
+  row-gap: 1rem;
+  justify-items: center;
+}
+
 
 /*================= Button Links =================*/
 
@@ -207,14 +367,33 @@ main section h1 {
   align-self: end;       
 }
 
+.project-link-tiles{
+  grid-template-rows: auto 1fr;   /* row 1 = title, row 2 = button area */
+  row-gap: 1.5rem;    
+  align-content: end; 
+  display: grid;
+
+}
+
+
+
+
+
+
+
 
 
 /*================= x =================*/
 
 /*
-  background-color: #fa7970;
-  background-color: #a2d2fb;
-  background-color: #174e7e;
-  background-color: #cea5fb;
-  background-color: #7ce38b;
+  fa7970
+  a2d2fb
+  174e7e
+  cea5fb
+  7ce38b
+  174e7e
+  2c599d
+  4a2d9b
+  927adb
+
 */
