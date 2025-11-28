@@ -318,33 +318,31 @@ main section h1 {
 
 
 .project3-mywork {
-  background-color: transparent;   
   padding: 0;                      
   display: grid;
   grid-template-rows: auto auto;   
 }
 
-/* Both halves get the purple card look */
-.project3-mywork-top,
-.project3-mywork-bottom {
-  background-color: #927adb;   
-  padding: 1.5rem;
-  border-radius: 4px;
-  width: 100%;
 
-}
+/*================= Project #4 =================*/
 
-/* Slight separation between text and links */
-.project3-mywork-bottom {
-  margin-top: 1rem;
-  border-top: 2px solid rgba(255, 255, 255, 0.4);
-}
-
-/* Center the links/buttons nicely at the bottom */
-.project3-mywork-bottom {
+.project4-tiles {
   display: grid;
-  row-gap: 1rem;
-  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.project4-tiles section {
+  background-color: #beaef2;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+
+.project4-mywork {
+  padding: 0;                      
+  display: grid;
+  grid-template-rows: auto auto;   
 }
 
 
