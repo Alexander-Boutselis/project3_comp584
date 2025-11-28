@@ -2,12 +2,13 @@
    COMP 584 - Grid Layout Assignment
    =============================== */
 
-/* Global reset-ish */
+/* Global box model*/
 * {
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
 }
@@ -20,62 +21,200 @@ body {
   color: #222;
 }
 
-/* ========== Layout Regions ========== */
-
-header {
-  grid-area: header;
-  padding: 1rem;
-  background-color: #ffffff;
-  border-bottom: 1px solid #ddd;
-}
-
-
+/*================= Wrapper =================*/
+/* Wrapper: full-page area -10% with black background */
 .wrapper {
-  box-sizing: border-box;
+  display: grid;                 
+  row-gap: 1rem;                 
   max-width: calc(100vw - 10px);
-  /*max-height: calc(100vh - 10px);*/
   min-height: calc(100vh - 10px);
-  margin: 0 auto;
+  margin: 5px auto;              
   padding: 1rem;
   background-color: #000000;
-
 }
 
-/* Main content area as a grid container */
+
+/*================= Main =================*/
 main {
-  grid-area: main;
-  padding: 1rem;
-
   display: grid; 
-  gap: 1rem;
-  /* New property #1: repeat + auto-fit + minmax
-     This makes the layout responsive by automatically
-     fitting as many columns as possible while keeping
-     each column at least 250px wide. */
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-  /* New property #2: align-items
-     Controls how grid items are aligned along the block (column) axis.
-     'start' keeps items aligned to the top of each grid cell. */
-  align-items: start;
+  gap: 1rem;                                            /* even spacing between boxes */
+  max-width: 960px;                                     /* keep the row from stretching too wide */
+  max-width: 1200px;                                     /* keep the row from stretching too wide */
+  margin: 0 auto;                                       /* center the whole row in the wrapper */
 }
 
+/* Base styling for all boxes */
 main section {
-background-color: #167e58;
-}
-
-
-main section p {
+  border-radius: 4px;
+  color: #ffffff;
+  /*min-height: 300px;*/
+  display: grid;
+  align-content: center;   /* center content vertically within the card */
+  justify-items: center;   /* center horizontally */
   text-align: center;
 }
 
-
-/* On wider screens, you could change the outer page layout too */
-@media (min-width: 900px) {
-  body {
-    /* New property #4: change page grid on desktop
-       (You can expand to 2 columns, sidebars, etc. if you want later.) */
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr auto;
-  }
+main section h1 {
+  font-size: clamp(0.3rem, 2.8vw, 1.5rem); /* min size, “flexible” size, max size */
+  line-height: 1.1;
+  margin: 0 0 1rem 0; /*margin: <top> <right> <bottom> <left>;*/
+  text-align: center;
 }
+
+/*================= Button =================*/
+
+.section-btn {
+  margin-top: 0.75rem;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;      /* pill shape */
+  border: none;
+  background-color: #ffffff;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+/* Simple hover effect */
+.section-btn:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.03);
+}
+
+/*================= Header =================*/
+
+.header-tile {
+  display: grid; 
+  grid-template-columns: 1fr;
+}
+
+.header-tile section {
+  justify-self: center; 
+  min-height: 5rem;
+  padding: 0.4rem;
+  background-color: #faa356;
+}
+
+/*================= Info =================*/
+
+.info-tiles{
+  width: 100%; 
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+/* Info row: each card auto-sizes with its content */
+.info-tiles section {
+  justify-items: left;
+  min-height: 13rem;
+  width: 100%;
+  background-color: #faa356;
+  padding: 1rem;
+  align-content: start;    /* grid tracks packed at the top */
+}
+
+.info-list{
+  display: grid;
+  row-gap: 1rem;
+  align-items: start;
+}
+
+/* Text inside the info cards */
+.info-tiles p {
+  font-size: clamp(0.8rem, 1rem, 1.1rem);  /* reasonable min / max in rem */
+  line-height: 1.4;                        
+  margin: 0.25rem ;
+  text-align: left;
+}
+
+
+
+/*================= Creator Info =================*/
+
+.creator-info {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.creator-info {
+  background-color: #7ce38b;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+/*================= Assignment #1 =================*/
+
+.assignment1-tiles {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+}
+
+.assignment1-tiles section {
+  background-color: #fa7970;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+
+/*================= Assignment #2 =================*/
+
+.assignment2-tiles {
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr 1fr;
+}
+
+.assignment2-tiles section {
+  background-color: #a2d2fb;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+
+/*================= Assignment #3 =================*/
+
+.assignment3-tiles {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.assignment3-tiles section {
+  background-color: #174e7e;
+  padding: 1rem;
+  align-content: start;
+  text-align: left;
+}
+
+/*================= Button Links =================*/
+
+.link-tiles {
+  grid-template-rows: auto 1fr;   /* row 1 = title, row 2 = button area */
+  row-gap: 1.5rem;          
+}
+
+.link-tiles h1 {
+  align-self: start;
+}
+
+/* Button group inside the tile */
+.link-buttons {
+  display: grid;          
+  row-gap: 1rem;          /* space between the two buttons */
+  justify-items: center;  
+  align-self: end;       
+}
+
+
+
+/*================= x =================*/
+
+/*
+  background-color: #fa7970;
+  background-color: #a2d2fb;
+  background-color: #174e7e;
+  background-color: #cea5fb;
+  background-color: #7ce38b;
+*/
