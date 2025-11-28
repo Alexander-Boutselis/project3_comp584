@@ -38,7 +38,6 @@ body {
 main {
   display: grid; 
   gap: 1rem;                                            /* even spacing between boxes */
-  max-width: 960px;                                     /* keep the row from stretching too wide */
   max-width: 1200px;                                     /* keep the row from stretching too wide */
   margin: 0 auto;                                       /* center the whole row in the wrapper */
 }
@@ -55,8 +54,8 @@ main section {
 }
 
 main section h1 {
-  font-size: clamp(0.3rem, 2.8vw, 1.5rem); /* min size, “flexible” size, max size */
-  line-height: 1.1;
+  font-size: 1.2rem;   /* pick a single size for all h1s */
+  line-height: 1.2;
   margin: 0 0 1rem 0; /*margin: <top> <right> <bottom> <left>;*/
   text-align: center;
 }
@@ -125,7 +124,7 @@ main section h1 {
 
 /* Text inside the info cards */
 .info-tiles p {
-  font-size: clamp(0.8rem, 1rem, 1.1rem);  /* reasonable min / max in rem */
+  font-size: 0.95rem;  /* single size for all p text */
   line-height: 1.4;                        
   margin: 0.25rem ;
   text-align: left;
@@ -179,6 +178,7 @@ main section h1 {
 .assignment3-tiles {
   display: grid;
   grid-template-columns: 3fr 1fr;
+  width: 100%;
 }
 
 .assignment3-tiles section {
@@ -409,6 +409,7 @@ main section h1 {
   .project1-tiles,
   .project2-tiles,
   .info-tiles,
+  .header-tile,
   .link-tiles {
     grid-template-columns: 1fr;
     width: 100%;
@@ -433,8 +434,47 @@ main section h1 {
 }
 
 
+/*================= Mobile Layout (≈ up to 600px) =================*/
+@media (max-width: 600px) {
 
+  /* Most rows: single column on mobile */
+  .info-tiles,
+  .header-tile,
+  .assignment1-tiles,
+  .assignment2-tiles,
+  .assignment3-tiles,
+  .assignment4-tiles,
+  .project1-tiles,
+  .project2-tiles,
+  .project3-tiles,
+  .project4-tiles,
+  .project1-buttons,
+  .project2-buttons {
+    grid-template-columns: 1fr;   /* stack tiles vertically */
+  }
 
+  /* All-links rows: keep 2 columns (2×2 layout) */
+  .all-links {
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+  }
+}
+
+/*================= Tablet + Mobile Typography =================*/
+@media (max-width: 900px) {
+
+  /* All tile headings */
+  main section h1 {
+    font-size: 1.2rem;   /* pick a single size for all h1s */
+    line-height: 1.2;
+  }
+
+  /* All tile paragraphs */
+  main section p,
+  .info-tiles p {
+    font-size: 0.95rem;  /* single size for all p text */
+    line-height: 1.4;
+  }
+}
 
 
 
