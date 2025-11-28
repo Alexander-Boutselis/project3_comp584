@@ -9,18 +9,45 @@
 
 <body>
 
+
+
+<!-- ================= Glow filter ================= -->
+    <svg width="0" height="0" aria-hidden="true" focusable="false">
+        <filter id="glow-border" x="-0.25" y="-0.25" width="1.5" height="1.5">
+            <!-- build an alpha mask -->
+            <feComponentTransfer in="SourceGraphic">
+            <feFuncA type="table" tableValues="0 2 0" />
+            </feComponentTransfer>
+            <feGaussianBlur stdDeviation="6" />
+            <feComponentTransfer result="rond">
+            <feFuncA type="table" tableValues="-6 7" />
+            </feComponentTransfer>
+
+            <!-- grow & blur to create soft outer glow -->
+            <feMorphology operator="dilate" radius="12" />
+            <feGaussianBlur stdDeviation="6" />
+
+            <!-- blend glow back with original graphic -->
+            <feBlend in="rond" result="glow" />
+            <feComponentTransfer in="SourceGraphic">
+            <feFuncA type="table" tableValues="0 0 1" />
+            </feComponentTransfer>
+            <feBlend in2="glow" />
+        </filter>
+    </svg>
+
     <div class="wrapper">
         
 <!-- ================= Header Content ================= -->
         <main class="header-tile">
-            <section>
+            <section class="glow-tile glow-theme-sunset">
                 <h1>COMP 584: Advanced Web Engineering</h1>
             </section>
         </main>
 
 
         <main class="info-tiles">
-            <section>
+            <section class="glow-tile glow-theme-sunset">
                 <div class="info-list">
                     <p class="header-info-tiles"><strong>Class Info:</strong></p>
                     <p class="header-info-tiles"><strong>Professor:</strong> Oscar Marin</p>
@@ -28,14 +55,14 @@
                     <p class="header-info-tiles"><strong>Class Meetings:</strong> Fridays</p>
                 </div>
             </section>
-            <section>
+            <section class="glow-tile glow-theme-sunset">
                 <p class="header-info-tiles"><strong>Course Objectives:</strong></p>
                 <p class="header-info-tiles">A study of the concepts, principles, techniques, and methods of Web engineering. Topics include requirements engineering, modeling and architectures, design and technologies, testing, operation and maintenance, Web project management, application development process, usability and performance, and security of Web applications. Technologies, business models and strategies, and societal issues of Web 2.0 and Semantic Web are also discussed.</p>
             </section>
         </main>
 
         <main class="creator-info">
-            <section>
+            <section class="glow-tile glow-theme-sunset">
                 <h1>Created By: Alexander Boutselis</h1>
                 <div class="images">
                     <img src="images/Alexander_Boutselis_and_dog.jpg" 
@@ -51,7 +78,7 @@
 
 <!--================= Assignment #1 ================= -->
         <main class="assignment1-tiles">
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>HW1 Intro HTML</h1>
                 <ol>
                     <strong>Homework Instructions:</strong>
@@ -114,7 +141,7 @@
                     </li>
                 </ol>
             </section>
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>My Work</h1>
                 <p>Utilized the blockquote label to add ASCII Art from 
                     <a href="https://www.asciiart.eu/image-to-ascii"
@@ -125,10 +152,9 @@
 
                 <p>Changed background color in the css file to black and text to white and red.</p>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-ocean">
                 <h1>Assignment 1</h1>
                 <h1>Links</h1>
-
                 <div class="link-buttons">
                     <a href="https://github.com/Alexander-Boutselis/Alexander-Boutselis.github.io"
                         class="section-btn">Github</a>
@@ -140,7 +166,7 @@
 
 <!--================= Assignment #2 ================= -->
         <main class="assignment2-tiles">
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>HW2 Formatting Basic Email with HTML and CSS</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -157,13 +183,13 @@
                     </li>
                 </ul>
             </section>
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>My Work</h1>
                 <p>Created a simple email campaign for the flying spaghetti monster.</p>
                 <p>It included 2 images with some informative text and a button that would take you to the wikipidia article for the Flying Spaghettie Monster to learn more.</p>
                 <p>At the bottom is a footer with an unsubscribe link that rick rolls the user.</p>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-ocean">
                 <h1>Assignment 2</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -177,7 +203,7 @@
 
 <!--================= Assignment #3 ================= -->
         <main class="assignment3-tiles">
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>HW3 Applying Responsiveness and Table Based Design to Email with HTML and CSS</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -222,7 +248,13 @@
                     </li>
                 </ul>
             </section>
-            <section class="link-tiles">
+            <section class="glow-tile glow-theme-ocean">
+                <h1>My Work</h1>
+                <p>Continued to build off of assignment 3 by added another image into the footer</p>
+                <p>A worked on the dynamic sizing, making sure the images dont pop out of the wrapper container.</p>
+                <p>I also updated the unsubscribe link to return the user to my github for assignmnet 3 to easily navigate back and forth.</p>
+            </section>
+            <section class="link-tiles glow-tile glow-theme-ocean">
                 <h1>Assignment 3</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -236,41 +268,35 @@
 
 <!--================= Assignment #4 ================= -->
         <main class="assignment4-tiles">
-            <section>
+            <section class="glow-tile glow-theme-ocean">
                 <h1>HW4 JavaScript Foundations</h1>
-                <ul>
-                    <strong>Homework Instructions:</strong>
-                    <li>Create a new .js file for this assignment.</li>
-                    <li>Solve Exercises 1–15 from the JavaScript Foundations handout.</li>
-                    <li>Use console.log() to show output or verify each solution.</li>
-                    <li>
-                        Follow JavaScript style rules:
-                        <ul>
-                            <li>Use let/const appropriately.</li>
-                            <li>Use camelCase for variable and function names.</li>
-                            <li>End statements with semicolons.</li>
-                        </ul>
-                    </li>
-                    <li>
-                        Include examples of:
-                        <ul>
-                            <li>Basic data types and comments.</li>
-                            <li>Conditionals, logical operators, and loops (for, do...while).</li>
-                            <li>Functions with parameters and return values.</li>
-                            <li>Arrays with methods like push, shift, indexOf, and slice.</li>
-                            <li>An Animal object constructor and object instances stored in an array.</li>
-                        </ul>
-                    </li>
-                        <li>Make sure your code runs without syntax errors.</li>
-                </ul>
+                    <ul>
+                        <strong>Homework Instructions:</strong>
+                        <li>Create a new .js file for this assignment.</li>
+                        <li>Solve Exercises 1–15 from the JavaScript Foundations handout.</li>
+                        <li>Use console.log() to show output or verify each solution.</li>
+                        <li>
+                            Follow JavaScript style rules:
+                            <ul>
+                                <li>Use let/const appropriately.</li>
+                                <li>Use camelCase for variable and function names.</li>
+                                <li>End statements with semicolons.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Include examples of:
+                            <ul>
+                                <li>Basic data types and comments.</li>
+                                <li>Conditionals, logical operators, and loops (for, do...while).</li>
+                                <li>Functions with parameters and return values.</li>
+                                <li>Arrays with methods like push, shift, indexOf, and slice.</li>
+                                <li>An Animal object constructor and object instances stored in an array.</li>
+                            </ul>
+                        </li>
+                            <li>Make sure your code runs without syntax errors.</li>
+                    </ul>
             </section>
-            <section>
-                <h1>My Work</h1>
-                <p>Created a simple email campaign for the flying spaghetti monster.</p>
-                <p>It included 2 images with some informative text and a button that would take you to the wikipidia article for the Flying Spaghettie Monster to learn more.</p>
-                <p>At the bottom is a footer with an unsubscribe link that rick rolls the user.</p>
-            </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-ocean">
                 <h1>Assignment 4</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -282,7 +308,7 @@
 
 <!--================= Project #1 ================= -->
         <main class="project1-tiles">
-            <section>
+            <section class="glow-tile glow-theme-midnight">
                 <h1>Project1 Email Campaign</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -342,7 +368,7 @@
                     </li>
                 </ul>
             </section>
-            <section class="project1-mywork">
+            <section class="project1-mywork glow-tile glow-theme-midnight">
                 <div class="project1-mywork-top">
                 <h1>My Work</h1>
                 <p>For Project 1, I built a single-column, 600px-wide email campaign themed around the Flying Spaghetti Monster.
@@ -366,7 +392,7 @@
         
 <!--================= Project #2 ================= -->
         <main class="project2-tiles">
-            <section>
+            <section class="glow-tile glow-theme-midnight">
                 <h1>Project 2 Flexbox</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -419,7 +445,7 @@
                     </li>
                 </ul>
             </section>
-            <section class="project2-mywork">
+            <section class="project2-mywork glow-tile glow-theme-midnight">
                 <div class="project2-mywork-top">
                     <h1>My Work</h1>
                     <p>For Project 2 I continued building off of the mobile-first dog adoption layout using Flexbox. Each row is a flex container with column classes that resize at tablet and desktop breakpoints. Rows 1,2, and 3 were provided witht he instructions</p>
@@ -441,7 +467,7 @@
 
 <!--================= Project #3 ================= -->
         <main class="project3-tiles">
-            <section>
+            <section class="glow-tile glow-theme-midnight">
                 <h1>Project 3 CSS Grid</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -468,14 +494,14 @@
                     <li>You will submit your GitHub repo. Make sure it is hosting the site via GitHub Pages.</li>
                 </ul>
             </section>
-            <section class="project3-mywork">
+            <section class="project3-mywork glow-tile glow-theme-midnight">
                     <h1>My Work</h1>
                     <p>For Project 3 I started over from Project 2 and I created this page you see before you utilizing the grid display style.</p>
                     <p>It easily lays out all the assignments from this class and links both the github and hosted page link (where applicable).</p>
                     <p>I also added some javascript to give the page some more life and interactivity.</p>
                     <p>The site is also dynamic with the screen size, moving tiles around between desktop, tablet, and mobile view.</p>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-midnight">
                 <h1>Project 3</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -489,7 +515,7 @@
 
 <!--================= Project #4 ================= -->
         <main class="project4-tiles">
-            <section>
+            <section class="glow-tile glow-theme-midnight">
                 <h1>Project 4 API</h1>
                 <ul>
                     <strong>Homework Instructions:</strong>
@@ -525,11 +551,11 @@
                     </li>
                 </ul>
             </section>
-            <section class="project4-mywork">
+            <section class="project4-mywork glow-tile glow-theme-midnight">
                     <h1>My Work</h1>
                     <p>Place holder until assignmnet is completed</p>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-midnight">
                 <h1>Project 4</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -543,13 +569,13 @@
 
 <!--================= All Assignmnet Links ================= -->
         <main class="header-tile">
-            <section>
+            <section class="glow-tile glow-theme-sunset">
                 <h1>All Links</h1>
             </section>
         </main>
         <main class="all-links">
              
-             <section class="link-tiles">
+             <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Assignment 1</h1>
                 <h1>Links</h1>
 
@@ -560,7 +586,7 @@
                         class="section-btn">Web Page</a>
                 </div>
             </section>
-             <section class="link-tiles">
+             <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Assignment 2</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -570,7 +596,7 @@
                         class="section-btn">Web Page</a>
                 </div>
             </section>
-             <section class="link-tiles">
+             <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Assignment 3</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -580,7 +606,7 @@
                         class="section-btn">Web Page</a>
                 </div>
             </section>
-             <section class="link-tiles">
+             <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Assignment 4</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -591,7 +617,7 @@
         </main>
 
         <main class="all-links">
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Project 1</h1>
                     <h1>Links</h1>
                     <div class="link-buttons">
@@ -600,7 +626,7 @@
                         <a href="https://alexander-boutselis.github.io/Project1_comp584/"
                         class="section-btn">Web Page</a>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Project 2</h1>
                     <h1>Links</h1>
                     <div class="link-buttons">
@@ -609,7 +635,7 @@
                         <a href="https://alexander-boutselis.github.io/project2_comp584/"
                             class="section-btn">Web Page</a>
             </section>
-             <section class="link-tiles">
+             <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Project 3</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
@@ -619,7 +645,7 @@
                             class="section-btn">Web Page</a>
                     </div>
             </section>
-            <section class="link-tiles">
+            <section class="link-tiles glow-tile glow-theme-sunset">
                 <h1>Project 4</h1>
                 <h1>Links</h1>
                 <div class="link-buttons">
