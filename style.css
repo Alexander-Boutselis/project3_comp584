@@ -134,9 +134,9 @@ main section h1 {
 .creator-info {
   display: grid;
   grid-template-columns: 1fr;
-  padding: 1rem;
   align-content: start;
   text-align: left;
+  width: 100%;
 }
 
 .creator-info section{
